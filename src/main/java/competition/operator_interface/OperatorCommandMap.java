@@ -1,6 +1,10 @@
 package competition.operator_interface;
 
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
+
+import competition.subsystems.drive.commands.MoveBackwardsCommand;
+import competition.subsystems.drive.commands.TankDriveWithJoysticksCommand;
 
 @Singleton
 public class OperatorCommandMap {
@@ -16,4 +20,10 @@ public class OperatorCommandMap {
         operatorInterface.leftButtons.getifAvailable(1).whenPressed(myCommand);
     }
     */
+
+    @Inject 
+    public void simplecommands(TankDriveWithJoysticksCommand forward, MoveBackwardsCommand backwards) {
+        forward.includeOnSmartDashboard("forward");
+        backwards.includeOnSmartDashboard("backward");
+    }
 }
