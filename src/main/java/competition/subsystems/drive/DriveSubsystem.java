@@ -16,8 +16,10 @@ public class DriveSubsystem extends BaseSubsystem {
 
     public final XCANTalon leftMaster;
     public final XCANTalon leftFollower;
+    public final XCANTalon leftFollower2;
     public final XCANTalon rightMaster;
     public final XCANTalon rightFollower;
+    public final XCANTalon rightFollower2;
 
     @Inject
     public DriveSubsystem(CommonLibFactory factory, XPropertyManager propManager) {
