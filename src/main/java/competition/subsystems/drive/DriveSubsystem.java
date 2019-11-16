@@ -43,4 +43,9 @@ public class DriveSubsystem extends BaseSubsystem {
         this.leftMaster.simpleSet(leftPower);
         this.rightMaster.simpleSet(leftPower);
     }
+
+    public void fakeTankDrive(double rightPower){
+        this.leftMaster.simpleSet(rightPower);
+        this.rightMaster.simpleSet(rightPower);
+    }
 }
