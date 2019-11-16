@@ -39,13 +39,9 @@ public class DriveSubsystem extends BaseSubsystem {
         this.rightMaster.simpleSet(rightPower);
     }
 
-    public void fakeArcadeDrive(double leftPower){
+    public void newDrive(double leftPower) {
         this.leftMaster.simpleSet(leftPower);
         this.rightMaster.simpleSet(leftPower);
     }
 
-    public void fakeTankDrive(double rightPower){
-        this.leftMaster.simpleSet(rightPower);
-        this.rightMaster.simpleSet(rightPower);
-    }
 }
