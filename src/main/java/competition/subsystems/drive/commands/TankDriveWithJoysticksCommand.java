@@ -30,7 +30,7 @@ public class TankDriveWithJoysticksCommand extends BaseCommand {
 
     @Override
     public void execute() {
-        driveSubsystem.tankDrive(power.get(),power.get());
+        driveSubsystem.tankDrive(power.get()*0.25,power.get()*0.25);
 
     }
 
