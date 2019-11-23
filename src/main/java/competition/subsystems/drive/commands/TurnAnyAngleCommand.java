@@ -39,6 +39,9 @@ public class TurnAnyAngleCommand extends BaseCommand{
         pid.setD(4.2);
     }
 
+    public void setGoal(double desired_Distance){
+        this.target_pos = desired_Distance;
+    }
 
     @Override
     public void initialize() {
