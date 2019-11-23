@@ -7,7 +7,6 @@ import com.google.inject.Provider;
 import com.google.inject.Singleton;
 
 import competition.subsystems.drive.commands.ArcadeDriveCommand;
-import competition.subsystems.drive.commands.DrivetoPosition;
 import competition.subsystems.drive.commands.MoveBackwardsCommand;
 import competition.subsystems.drive.commands.TankDriveWithJoysticksCommand;
 import competition.subsystems.drive.commands.TurnAnyAngleCommand;
@@ -39,15 +38,13 @@ public class OperatorCommandMap {
     @Inject
     public void setupAutoCommands(
         OperatorInterface oi,
-        Provider<TurnAnyAngleCommand> angleProvider,
-        DrivetoPosition goStraight_1
+        Provider<TurnAnyAngleCommand> angleProvider
     ) {
         TurnAnyAngleCommand left90_1 = angleProvider.get();
         left90_1.setGoal(-90);
 
         var commands = new ArrayList<Command>();
         commands.add(left90_1);
-        commands.add(goStraight_1);
 
         SimpleCommandGroup auto = new SimpleCommandGroup("Auto", commands, ExecutionType.Serial);
 

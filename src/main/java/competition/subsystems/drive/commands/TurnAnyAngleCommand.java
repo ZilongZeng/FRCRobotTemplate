@@ -16,6 +16,7 @@ public class TurnAnyAngleCommand extends BaseCommand{
     final OperatorInterface oi;
     PIDManager pid;
     HeadingModule headingModule;
+    PoseSubsystem pose;
     double target_pos;
     
 
@@ -24,6 +25,7 @@ public class TurnAnyAngleCommand extends BaseCommand{
         this.oi = oi;
         this.drive = driveSubsystem;
         this.requires(this.drive);
+        this.pose = pose;
 
         pid = pf.createPIDManager("Rotate");
         pid.setP(1);
@@ -36,16 +38,16 @@ public class TurnAnyAngleCommand extends BaseCommand{
 
         // manually adjust these values to adjust the action
         pid.setP(1);
-        pid.setD(4.2);
+        pid.setD(1);
     }
 
     public void setGoal(double desired_Distance){
-        this.target_pos = desired_Distance;
+        target_pos = pose.getCurrentHeading().getValue() + desired_Distance;
     }
 
     @Override
     public void initialize() {
-        pid.reset();
+   
     }
 
     @Override
